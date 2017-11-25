@@ -1,6 +1,9 @@
 <html>
     <head>
 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+
         <title>Gestionnaire de carnet d'adresses</title>
 
     </head>
@@ -8,13 +11,34 @@
 
         <h1>Créer un nouveau contact</h1>
 
-        <div>
-            <form>
+        <br>
 
-                <p></p>
+        <form>
 
-            </form>
-        </div>
+            <div id="champs">
+                <span class="txt">Nom : </span><input type="text" id="nom"/>
+                <br>
+                <span class="txt">Prenom : </span><input type="text" id="prenom"/>
+                <br>
+                <span class="txt">Adresse mail : </span><input type="text" id="mail"/>
+                <br>
+                <span class="txt">Civilité : </span><label for="mr">Mr</label> <input type="radio" id="mr" name="civilite" value="Mr"/><label for="mme">Mme</label> <input type="radio" id="mme" name="civilite" value="Mme"/>
+                <br>
+                <span class="txt">Rue et numéro de voie : </span><input type="text" id="rueVoie"/>
+                <br>
+                <span class="txt">Code postal : </span><input type="text" id="codePostal"/>
+                <br>
+                <span class="txt">Ville : </span><input type="text"  id="ville"/>
+                <br>
+                <span class="txt">Pays : </span><input type="text" id="pays"/>
+                <br>
+                <span class="txt">Numéro de téléphone : </span><input type="text" id="numTel"/>
+                <br>
+                <input type="submit" value="Valider"/><input type="reset" value="Effacer champs"/>
+
+            </div>
+
+        </form>
 
     </body>
 </html>
