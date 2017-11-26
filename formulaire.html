@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/webStorage.js"></script>
+        <script type="text/javascript" src="js/indexedDatabase.js"></script>
 
         <title>Gestionnaire de carnet d'adresses</title>
 
@@ -37,7 +38,10 @@
                 <br>
                 <span class="txt">Numéro de téléphone : </span><input type="text" id="numTel"/>
                 <br>
-                <input type="button" value="Valider" id="valider"/><input type="reset" value="Effacer champs"/>
+                <input type="button" value="Enregistrer avec Web Storage" id="persistWebStorage"/>
+                <input type="button" value="Enregistrer avec Indexed Database" id="persistIndexDB">
+                <br>
+                <input type="reset" value="Effacer champs"/>
 
             </div>
 
