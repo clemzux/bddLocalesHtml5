@@ -39,7 +39,7 @@ if(window.openDatabase){
     db.transaction(
         function(tx){
             tx.executeSql(
-                "CREATE TABLE IF NOT EXISTS personne (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, mail TEXT, civ  TEXT, rueVoie TEXT, codePostal INTEGER, ville TEXT, pays TEXT, numTel TEXT)",
+                "CREATE TABLE IF NOT EXISTS personne (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, mail TEXT, civ  TEXT, rueVoie TEXT, codePostal INTEGER, ville TEXT, pays TEXT, numTel INTEGER)",
                 [],
                 onSuccessExecuteSql,
                 onError
@@ -56,9 +56,7 @@ if(window.openDatabase){
         nom = $("#nom").val();
         prenom = $("#prenom").val();
         mail = $("#mail").val();
-
-
-        civilite = $('input[name=civilite]:checked').val()
+        civilite = $('input[name=civilite]:checked').val();
         rueVoie = $("#rueVoie").val();
         codePostal = $("#codePostal").val();
         ville = $("#ville").val();
@@ -68,8 +66,8 @@ if(window.openDatabase){
         db.transaction(
             function(tx){
                 tx.executeSql(
-                    " INSERT INTO personne (nom,prenom,mail,civ) VALUES (?,?,?,?)",
-                    [nom,prenom,mail,civilite],//rueVoie,codePostal,ville,pays,numTel],
+                    " INSERT INTO personne (nom, prenom, mail, civ,rueVoie, codePostal, ville, pays, numTel) VALUES (?,?,?,?,?,?,?,?,?)",
+                    [nom,prenom,mail,civilite, rueVoie,codePostal,ville,pays,numTel],// ,codePostal,ville,pays,numTel],
                     onSuccessExecuteSql,
                     onError
                 )
