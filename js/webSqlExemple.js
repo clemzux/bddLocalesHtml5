@@ -40,7 +40,7 @@ if(window.openDatabase){
 
         function(tx){
             tx.executeSql(
-                "CREATE TABLE IF NOT EXISTS personne (id INTEGER PRIMARY KEY AUTOINCREMENT, nom TEXT, prenom TEXT, mail, civ  ENUM('Mr', 'Mme'),rueVoie Text, codePostal INTEGER, ville TEXT, pays TEXT, numTel INTEGER",
+                "CREATE TABLE IF NOT EXISTS fightclub (id INTEGER PRIMARY KEY AUTOINCREMENT, rules TEXT)",
                 [],
                 onSuccessExecuteSql,
                 onError
@@ -50,32 +50,31 @@ if(window.openDatabase){
         onReadyTransaction
     );
 
-};
-    
-    $("#persistWebSq").click(function () {
+    $("#ex").click(function(){
 
         db.transaction(
 
             function(tx){
                 tx.executeSql(
-                    " INSERT INTO personne (nom,prenom,mail,civ,rueVoie,codePostal,ville,pays,numTel) VALUES (?,?,?,?,?,?,?,?,?)",
-                    [,,,,,,,,,],
+                    'INSERT INTO fightclub (rules) VALUES (?)',
+                    ["lalalala"],
                     onSuccessExecuteSql,
                     onError
-                )
+                );
             },
             onError,
             onReadyTransaction
         );
-    })
+    });
 
-/*
-    $("#montrer").click(function(){
+}
+
+$("#sel").click(function(){
 
         db.transaction(
             function(tx){
-                tx.executeSql( "SELECT * FROM personne",
-                    [],
+                tx.executeSql( "SELECT * FROM fightclub WHERE id > ?",
+                    ['1'],
                     displayResults,
                     onError )
             },
@@ -83,5 +82,5 @@ if(window.openDatabase){
             onReadyTransaction
         )
     });
-*/
-})
+
+});
